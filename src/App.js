@@ -1,42 +1,42 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './App.css';
 
 import 'vega';
 import 'vega-lite';
 import vegaEmbed from 'vega-embed';
 
-var yourVlSpec = {
-  $schema: 'https://vega.github.io/schema/vega-lite/v2.0.json',
-  description: 'A simple bar chart with embedded data.',
-  data: {
-    values: [
-      {a: 'A', b: 28},
-      {a: 'B', b: 55},
-      {a: 'C', b: 43},
-      {a: 'D', b: 91},
-      {a: 'E', b: 81},
-      {a: 'F', b: 53},
-      {a: 'G', b: 19},
-      {a: 'H', b: 87},
-      {a: 'I', b: 52}
-    ]
-  },
-  mark: 'bar',
-  encoding: {
-    x: {field: 'a', type: 'ordinal'},
-    y: {field: 'b', type: 'quantitative'}
-  }
-};
+import basic from './schema/data.json';
+import externalSrc from './schema/external-csv.json';
+import bars from './schema/bar-with-bin.json';
+import tick from './schema/using-tick.json';
+
+const graphs = [
+  basic,
+  externalSrc,
+  bars,
+  tick,
+];
 
 function App() {
+
+  const appRef = useRef();
+
+  function createGraph(graph) {
+    const el = document.createElement('div');
+    el.setAttribute('class', 'graph-container');
+    appRef.current.appendChild(el);
+
+    vegaEmbed(el, graph);    
+  }
+
   useEffect(() => {
-    vegaEmbed('#vis', yourVlSpec);
+    graphs.forEach(graph => {
+      createGraph(graph);
+    });
   });
 
   return (
-    <div className="App">
-     <div id="vis"></div>
-    </div>
+    <div className="App" ref={appRef} />
   );
 }
 

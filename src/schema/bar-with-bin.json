@@ -1,0 +1,15 @@
+{
+    "data": {"url": "https://vega.github.io/vega-lite/data/seattle-weather.csv"},
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "bin": true,
+        "field": "precipitation",
+        "type": "quantitative"
+        },
+      "y": {
+        "aggregate": "count",
+        "type": "quantitative"
+      }
+    }
+}

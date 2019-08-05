@@ -1,0 +1,7 @@
+{
+    "data": {"url": "https://vega.github.io/vega-lite/data/seattle-weather.csv"},
+    "mark": "tick",
+    "encoding": {
+      "x": {"field": "precipitation", "type": "quantitative"}
+    }
+}
