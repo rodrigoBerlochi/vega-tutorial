@@ -9,12 +9,20 @@ import basic from './schema/data.json';
 import externalSrc from './schema/external-csv.json';
 import bars from './schema/bar-with-bin.json';
 import tick from './schema/using-tick.json';
+import lineMean from './schema/line-mean.json';
+import transform from './schema/calculated-field.json';
+import stacked from './schema/stacked.json';
+import full from './schema/full-example.json';
 
 const graphs = [
   basic,
   externalSrc,
   bars,
   tick,
+  lineMean,
+  transform,
+  stacked,
+  full,
 ];
 
 function App() {

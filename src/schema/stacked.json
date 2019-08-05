@@ -1,0 +1,20 @@
+{
+    "data": {"url": "https://vega.github.io/vega-lite/data/seattle-weather.csv"},
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "timeUnit": "month",
+        "field": "date",
+        "type": "ordinal"
+      },
+      "y": {
+        "aggregate": "count",
+        "field": "*",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "weather",
+        "type": "nominal"
+      }
+    }
+  }
