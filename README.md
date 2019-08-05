@@ -2,11 +2,16 @@
 
 ## Intro notes
 
-- data.values is data to be rendered
-- mark is the kind of graphic shapes used to encode data: bar, point, thick
-- encoding makes de relationship between variables of data and the x y axis. 
-  - here we specify types: nominal quantitative etc
-  - here we tell vega the kind of aggregation
-- we use vega-embed to embed the graphic in a web page. It first translates VL spec to Vega spec, then call the vega Runtime
-- bin: true discretize continuos vars
-  - timeUnit: month  continuos => discrete
+
+### What is this?
+This repository is only a set of exercises from Vega Lite webpage. I'm learning the concepts and the working logic of Vega Lite. 
+
+Vega Lite is built on top of Vega and it on top of D3. Vega lite heart is a JSON schema that describes all things required by a specific graphic. It is based on the "Grammar of graphics" by Lelan Wilkinson. More @ http://www.roger-beecham.com/intro-visual-data-analysis/sessions/session_datavis.html
+
+A graphic can be fully contained in that schema, that is interchangable and lightweight, and can be produced by machines. 
+
+#### Key properties of the schema:
+- data -> define the source of data, local or external
+- transform -> create calculated fields
+- mark -> type of visualization
+- encoding -> map variables to x and y axis, add legend and colors
